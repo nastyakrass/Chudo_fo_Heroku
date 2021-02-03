@@ -298,15 +298,15 @@ def photo(message):
             bot.send_message(message.from_user.id, "Енотя полоскает...")
             v = 0
             # выводим результат обычной бикубической интерполяции -- понижает размерность
-            img = img.resize((img.size[0]-120, img.size[1]-120), Image.BICUBIC)
+            img1 = img.resize((img.size[0]-120, img.size[1]-120), Image.BICUBIC)
             bio = io.BytesIO()
             bio.name = 'output.jpeg'
             img.save(bio, 'jpeg')
             bio.seek(0)
             bot.send_message(message.from_user.id, "Посмотри  на результат обычной бикубической интерполяции (я сжал фото для более наглядной демонстрации)")
-            bot.send_photo(message.from_user.id, photo=img)
+            bot.send_photo(message.from_user.id, photo=img1)
             # а теперь применяем GAN  и выводим результат
-            u = img.resize((img.size[0]+150, img.size[1]+150), Image.BICUBIC)
+            u = img
             bio = io.BytesIO()
             bio.name = 'output_f.jpeg'
             u.save(bio, 'jpeg')
