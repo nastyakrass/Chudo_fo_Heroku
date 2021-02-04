@@ -365,6 +365,7 @@ def photo(message):
             st_transf_model = MyStyleModel(input_img, cnn, cnn_normalization_mean, cnn_normalization_std,
                       style1_img, style2_img, content_img, option ='partial_style', mask_type = mask)
             output = st_transf_model.run_style_transfer(num_steps=100)
+            del st_transf_model
             # отправляем результат и радуемся)
             image = get_res(output)
             bot.send_photo(message.from_user.id, photo=image)
@@ -420,6 +421,7 @@ def photo(message):
             st_transf_model = MyStyleModel(input_img, cnn, cnn_normalization_mean, cnn_normalization_std,
                       style1_img, style2_img, content_img, option='dual_style', mask_type=None)
             output = st_transf_model.run_style_transfer(num_steps=100)
+            del st_transf_model
             # отправляем результат и радуемся)
             image = get_res(output)
             bot.send_photo(message.from_user.id, photo=image)
@@ -461,6 +463,7 @@ def photo(message):
             st_transf_model = MyStyleModel(input_img, cnn, cnn_normalization_mean, cnn_normalization_std,
                       style1_img, style1_img, content_img, option = 'dual_style', mask_type = None)
             output = st_transf_model.run_style_transfer(num_steps=100)
+            del st_transf_model
             # отправляем результат и радуемся)
             img = get_res(output)
             bot.send_photo(message.from_user.id, photo=img)
