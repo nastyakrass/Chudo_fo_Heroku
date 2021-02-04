@@ -12,9 +12,6 @@ import io
 imsize = 256
 from styletransfer import *
 # загружаем GAN для суперрезолюции
-'''
-На Heroku gan не влезает!!
-'''
 
 from ISR.models import RRDN
 gan = RRDN(weights='gans')
