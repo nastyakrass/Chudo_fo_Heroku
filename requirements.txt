@@ -6,5 +6,10 @@ torch==1.2.0+cpu
 torchvision==0.4.0+cpu
 tensorflow>=2.0.0a0
 ISR==2.2.0
+gast>=0.2.2
+keras-applications>=1.0.8
+pyaml==20.4.0
+tensorboard>=2.0.0a0
+tensorflow-estimator>=2.0.0a0
 requests==2.22.0
 google==2.0.2
