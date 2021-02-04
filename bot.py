@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # создаем бота
-# TOKEN = 'YOUR_TOKEN'
-TOKEN = '1592446391:AAGWqNo-6mxY--Bf4UqZexGXdYA0phOxDQQ'
+TOKEN = 'YOUR_TOKEN'
 import telebot;
 bot = telebot.TeleBot(TOKEN);
 
@@ -16,11 +15,9 @@ from styletransfer import *
 '''
 На Heroku gan не влезает!!
 '''
-#from ISR.models import RDN
-#gan = RDN(weights='psnr-small')
 
-#from ISR.models import RRDN
-#gan = RRDN(weights='gans')
+from ISR.models import RRDN
+gan = RRDN(weights='gans')
 
 
 # путь приведен относительно репозитория 'Enotya_bot'. Возможно, Вам понадобится прописать свой путь к Masks, в зависимости от расположения данного каталога на
@@ -298,15 +295,17 @@ def photo(message):
             bot.send_message(message.from_user.id, "Енотя полоскает...")
             v = 0
             # выводим результат обычной бикубической интерполяции -- понижает размерность
-            img1 = img.resize((img.size[0]-120, img.size[1]-120), Image.BICUBIC)
+            img = img.resize((img.size[0]-120, img.size[1]-120), Image.BICUBIC)
             bio = io.BytesIO()
             bio.name = 'output.jpeg'
             img.save(bio, 'jpeg')
             bio.seek(0)
             bot.send_message(message.from_user.id, "Посмотри  на результат обычной бикубической интерполяции (я сжал фото для более наглядной демонстрации)")
-            bot.send_photo(message.from_user.id, photo=img1)
+            bot.send_photo(message.from_user.id, photo=img)
             # а теперь применяем GAN  и выводим результат
-            u = img
+            lr_img = np.array(img, np.float64)
+            sr_img = gan.predict(lr_img, by_patch_of_size=50)
+            u = Image.fromarray(sr_img)
             bio = io.BytesIO()
             bio.name = 'output_f.jpeg'
             u.save(bio, 'jpeg')
