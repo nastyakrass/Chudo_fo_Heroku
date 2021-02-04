@@ -11,8 +11,8 @@ import io
 '''
 imsize = 256
 from styletransfer import *
-# загружаем GAN для суперрезолюции
 
+# загружаем GAN для суперрезолюции
 from ISR.models import RRDN
 gan = RRDN(weights='gans')
 
