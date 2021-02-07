@@ -2,8 +2,8 @@
 
 # Telebot
 Асинхронный Телебот: 
-@Enotuskabot (Heroku) 
-@Enotyabot (Colab) -- его клон для Колаба
+**@Enotuskabot (Heroku) 
+@Enotyabot (Colab) -- его клон для Колаба**
 
 ***
 
