@@ -19,7 +19,6 @@ gan = RDN(weights='psnr-small')
 '''
 А вот такой вот тяжелый и красивый GAN  я оставила для Колаба, так как он постоянно обваливал Heroku
 '''
-
 #from ISR.models import RRDN
 #gan = RRDN(weights='gans')
 
