@@ -6,5 +6,6 @@ torch==1.2.0+cpu
 torchvision==0.4.0+cpu
 ISR==2.2.0
 tensorflow==2.0.0a0
+h5py==2.10.0
 requests==2.22.0
 google==2.0.2
