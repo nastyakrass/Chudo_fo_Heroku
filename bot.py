@@ -13,8 +13,8 @@ imsize = 256
 from styletransfer import *
 
 # загружаем GAN для суперрезолюции
-from ISR.models import RRDN
-gan = RRDN(weights='gans')
+from ISR.models import RDN
+gan = RDN(weights='psnr-small')
 
 
 # путь приведен относительно репозитория 'Enotya_bot'. Возможно, Вам понадобится прописать свой путь к Masks, в зависимости от расположения данного каталога на
