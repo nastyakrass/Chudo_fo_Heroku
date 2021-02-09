@@ -302,9 +302,10 @@ def photo(message):
             if imsize == 128:
                 img = img.resize((img.size[0]-35, img.size[1]-35), Image.BICUBIC)
             elif imsize == 256:
-                img = img.resize((img.size[0]-120, img.size[1]-120), Image.BICUBIC)
-            else:
-                img = img.resize((256, 256), Image.BICUBIC)
+                if (img.size[0] <= 256) and (img.size[1] <= 256):
+                    img = img.resize((img.size[0]-120, img.size[1]-120), Image.BICUBIC)
+                else:
+                    img = img.resize((256, 256), Image.BICUBIC)
             bio = io.BytesIO()
             bio.name = 'output.jpeg'
             img.save(bio, 'jpeg')
