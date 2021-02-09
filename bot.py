@@ -12,9 +12,16 @@ import io
 imsize = 256
 from styletransfer import *
 
-# загружаем GAN для суперрезолюции
+# загружаем GAN для суперрезолюции: легкая, но эффективная сеточка
 from ISR.models import RDN
 gan = RDN(weights='psnr-small')
+
+'''
+А вот такой вот тяжелый и красивый GAN  я оставила для Колаба, так как он постоянно обваливал Heroku
+'''
+
+#from ISR.models import RRDN
+#gan = RRDN(weights='gans')
 
 
 # путь приведен относительно репозитория 'Enotya_bot'. Возможно, Вам понадобится прописать свой путь к Masks, в зависимости от расположения данного каталога на
