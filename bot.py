@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # создаем бота
-TOKEN = '1592446391:AAGWqNo-6mxY--Bf4UqZexGXdYA0phOxDQQ'
+TOKEN = 'YOUR_TOKEN'
 import telebot;
 bot = telebot.TeleBot(TOKEN);
 
